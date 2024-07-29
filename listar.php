@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="listar.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <p><a href="index.html" id="home">Home</a>
+            <a href="cadastrocidade.html">Cadastro Cidade</a>
+            <a href="cadastropessoa.php">Cadastro Pessoa</a>
+            <a href="cadastroAnimal.php">Cadastro Animal</a>
+            <a href="listar.php">Listar Tabelas</a></p>
+        </nav>
+    </header>
     <div>
         <?php
             include('include/conexao.php');
@@ -139,6 +148,9 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p>@copywriting | Nuness</p>
+    </footer>
 </body>
 </html>
 

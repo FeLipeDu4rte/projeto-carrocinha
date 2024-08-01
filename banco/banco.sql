@@ -12,20 +12,21 @@ CREATE TABLE Pessoa(
     id int primary key AUTO_INCREMENT,
     nome varchar(50),
     email varchar(100),
-    endereço varchar(30),
+    endereco varchar(30),
     bairro varchar(20),
     CEP varchar(9),
     cidade_id INT,
     FOREIGN KEY (cidade_id) REFERENCES Cidade(id)
 );
 
-CREATE Animal(
+CREATE TABLE Animal(
     id int primary key AUTO_INCREMENT,
     nome varchar(50),
     especie varchar(20),
     raca varchar(20),
     dt_nascimento date,
+    idade int;
     castrado BOOL,
-    id_pessoa,
+    id_pessoa INT,
     FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id)
 );

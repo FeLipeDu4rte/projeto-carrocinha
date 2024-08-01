@@ -19,11 +19,11 @@
     
     <main>
     <div class="container">
-        <h1>Cadastro de Cidades</h1>
+        <h1>Cadastro de Pessoas</h1>
 
         <form action="CadastropessoaExe.php" method="post">
             <fieldset>
-                <legend>Dados da Cidade</legend>
+                <legend>Dados da Pessoa</legend>
                 <div>
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome">

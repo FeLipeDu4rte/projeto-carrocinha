@@ -14,18 +14,9 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif; /* Escolha uma fonte apropriada */
+            font-family: Arial, sans-serif;
             color: #ffffff;
             text-align: center;
-        }
-
-        .container {
-            background-color: #333333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 600px;
         }
 
         h1 {
@@ -50,6 +41,31 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .container {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #voltar {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        #voltar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #voltar a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +73,6 @@
         <?php
             include('include/conexao.php');
 
-            // Verifica se os dados foram enviados pelo formulário
             if (isset($_POST['nome'], $_POST['email'])) {
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
@@ -66,7 +81,6 @@
                 $cep = $_POST['cep'];
                 $cidade = $_POST['cidade'];
 
-                // Inserção no banco de dados
                 $sql = "INSERT INTO Pessoa (nome, email, endereco, bairro, cep, cidade_id) VALUES ('$nome', '$email', '$endereco', '$bairro', '$cep', '$cidade')";
                 $result = mysqli_query($con, $sql);
 
@@ -86,7 +100,9 @@
                 echo "<h2>Nenhum dado enviado.</h2>";
             }
         ?>
-        <p><a href="index.html">Voltar</a></p>
+        <div id="voltar">
+            <p><a href="index.html">Voltar</a></p>
+        </div>
     </div>
 </body>
 </html>

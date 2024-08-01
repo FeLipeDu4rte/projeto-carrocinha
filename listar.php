@@ -17,8 +17,9 @@
             <a href="listar.php">Listar Tabelas</a></p>
         </nav>
     </header>
-    <div>
+    <div class="tabela">
         <?php
+        //tabela pessoas
             include('include/conexao.php');
             $sql = "SELECT pe.id, pe.nome, pe.email, pe.endereco, pe.bairro, pe.cep,
                     cid.nomecidade, cid.estado
@@ -32,8 +33,8 @@
             }
         ?>
         <div class="container">
-        <h1>Consulta de Clientes</h1>
-        <table align="center" border="1" width="500">
+        <h1>Consulta de Pessoas</h1>
+        <table class="table-custom">
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
@@ -45,6 +46,7 @@
                 <th>Deletar</th>
             </tr>
             <?php
+            //tabela pessoas
                 while($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
                     echo "<td>".$row['id']."</td>";
@@ -54,18 +56,16 @@
                     echo "<td>".$row['bairro']."</td>";
                     echo "<td>".$row['cep']."</td>";
                     echo "<td><a href='alteraCliente.php?id=".$row['id']."'>Alterar</a></td>";
-                    echo "<td><a href='deletarCliente.php?id=".$row['id']."'>Deletar</a></td>";
+                    echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Pessoa'>Deletar</a></td>";
                     echo "</tr>";
                 }
             ?>
         </table>
-        <div class="footer">
-            <p><a href="index.html">Voltar</a></p>
-        </div>
         </div>
     </div>
-    <div>
+    <div class="tabela">
         <?php
+        // tabela cidade
             include('include/conexao.php');
             $sql = "SELECT * FROM Cidade";
 
@@ -77,7 +77,7 @@
         ?>
         <div class="container">
             <h1>Consulta de Cidades</h1>
-            <table align="center" border="1" width="500">
+            <table class="table-custom">
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
@@ -86,24 +86,23 @@
                     <th>Deletar</th>
                 </tr>
                 <?php
+                    //tabela cidade
                     while($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nomecidade']."</td>";
                         echo "<td>".$row['estado']."</td>";
                         echo "<td><a href='alteraCidade.php?id=".$row['id']."'>Alterar</a></td>";
-                        echo "<td><a href='deletaCidade.php?id=".$row['id']."'>Deletar</a></td>";
+                        echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Cidade'>Deletar</a></td>";
                         echo "</tr>";
                     }
                 ?>
             </table>
-            <div class="footer">
-                <p><a href="index.html">Voltar</a></p>
-            </div>
         </div>
     </div>
-    <div>
+    <div class= "tabela">
         <?php
+        //tabela animal
             include('include/conexao.php');
             $sql = "SELECT * FROM Animal";
 
@@ -115,7 +114,7 @@
         ?>
         <div class="container">
             <h1>Consulta de Animais</h1>
-            <table align="center" border="1" width="500">
+            <table class="table-custom">
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
@@ -128,6 +127,7 @@
                     <th>Deletar</th>
                 </tr>
                 <?php
+                //tabela animal
                     while($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>".$row['id']."</td>";
@@ -138,14 +138,11 @@
                         echo "<td>".$row['idade']."</td>";
                         echo "<td>".($row['castrado'] == 1 ? 'Sim': 'Não')."</td>";
                         echo "<td><a href='alteraAnimal.php?id=".$row['id']."'>Alterar</a></td>";
-                        echo "<td><a href='deletaAnimal.php?id=".$row['id']."'>Deletar</a></td>";
+                        echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Animal'>Deletar</a></td>";
                         echo "</tr>";
                     }
                 ?>
             </table>
-            <div class="footer">
-                <p><a href="index.html">Voltar</a></p>
-            </div>
         </div>
     </div>
     <footer>
@@ -153,5 +150,3 @@
     </footer>
 </body>
 </html>
-
-

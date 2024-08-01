@@ -35,24 +35,26 @@ main {
 }
 
 /* Tabelas */
-table {
-    width: 100%;
+table.table-custom {
+    width: 60% !important; /* Reduza a largura da tabela conforme necessário, por exemplo, 60% */
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px auto !important; /* Centralize a tabela */
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Para garantir que as bordas arredondadas funcionem corretamente */
 }
-table th, table td {
+table.table-custom th, table.table-custom td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
-table th {
+table.table-custom th {
     background-color: #333;
     color: white;
 }
-table tr:nth-child(even) {
+table.table-custom tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-table tr:hover {
+table.table-custom tr:hover {
     background-color: #ddd;
 }
 

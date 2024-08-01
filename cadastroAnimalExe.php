@@ -14,7 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif; /* Escolha uma fonte apropriada */
+            font-family: Arial, sans-serif;
             color: #ffffff;
             text-align: center;
         }
@@ -63,11 +63,16 @@
                 $especie = $_POST['especie'];
                 $raca = $_POST['raca'];
                 $datanasc = $_POST['dt_nascimento'];
-                $castrado = $_POST['ativo'];
+                $castrado = isset($_POST['ativo']) ? 1 : 0;
                 $dono = $_POST['dono'];
 
+                // Calcular a idade
+                $dob = new DateTime($datanasc);
+                $now = new DateTime();
+                $idade = $now->diff($dob)->y;
+
                 // Inserção no banco de dados
-                $sql = "INSERT INTO Animal (nome, especie, raca, dt_nascimento, castrado, id_pessoa) VALUES ('$nome', '$especie', '$raca', '$datanasc', '$castrado', '$dono')";
+                $sql = "INSERT INTO Animal (nome, especie, raca, dt_nascimento, idade, castrado, id_pessoa) VALUES ('$nome', '$especie', '$raca', '$datanasc', '$idade', '$castrado', '$dono')";
                 $result = mysqli_query($con, $sql);
 
                 if ($result) {
@@ -75,6 +80,7 @@
                     echo "<p>Nome: $nome</p>";
                     echo "<p>Raça: $raca</p>";
                     echo "<p>Data de Nascimento: $datanasc</p>";
+                    echo "<p>Idade: $idade anos</p>";
                     echo "<h2>Dados cadastrados com sucesso!</h2>";
                 } else {
                     echo "<h2>Erro ao cadastrar!</h2>";

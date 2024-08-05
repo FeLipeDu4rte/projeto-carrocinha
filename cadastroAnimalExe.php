@@ -67,12 +67,12 @@
                 $dono = $_POST['dono'];
 
                 // Calcular a idade
-                $dob = new DateTime($datanasc);
-                $now = new DateTime();
-                $idade = $now->diff($dob)->y;
+                $nasc = new DateTime($datanasc);
+                $atual = new DateTime();
+                $idade = $now->diff($nasc)->y;
 
                 // Inserção no banco de dados
-                $sql = "INSERT INTO Animal (nome, especie, raca, dt_nascimento, idade, castrado, id_pessoa) VALUES ('$nome', '$especie', '$raca', '$datanasc', '$idade', '$castrado', '$dono')";
+                $sql = "INSERT INTO Animal (nome, especie, raca, dt_nascimento, castrado, id_pessoa) VALUES ('$nome', '$especie', '$raca', '$datanasc', '$castrado', '$dono')";
                 $result = mysqli_query($con, $sql);
 
                 if ($result) {

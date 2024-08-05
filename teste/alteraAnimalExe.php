@@ -55,12 +55,7 @@ if (isset($_POST['id'], $_POST['nome'], $_POST['especie'], $_POST['raca'], $_POS
     $castrado = isset($_POST['castrado']) ? 1 : 0;
     $dono = $_POST['dono'];
 
-    // Calcular a idade
-    $dob = new DateTime($dt_nascimento);
-    $now = new DateTime();
-    $idade = $now->diff($dob)->y;
-
-    $sql = "UPDATE Animal SET nome = '$nome', especie = '$especie', raca = '$raca', dt_nascimento = '$dt_nascimento', idade = $idade, castrado = $castrado, id_pessoa = $dono WHERE id = $id";
+    $sql = "UPDATE Animal SET nome = '$nome', especie = '$especie', raca = '$raca', dt_nascimento = '$dt_nascimento', castrado = $castrado, id_pessoa = $dono WHERE id = $id";
     $result = mysqli_query($con, $sql);
 
     if ($result) {

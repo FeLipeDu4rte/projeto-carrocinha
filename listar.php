@@ -55,7 +55,7 @@
                     echo "<td>".$row['endereco']."</td>";
                     echo "<td>".$row['bairro']."</td>";
                     echo "<td>".$row['cep']."</td>";
-                    echo "<td><a href='alteraCliente.php?id=".$row['id']."'>Alterar</a></td>";
+                    echo "<td><a href='teste/alteraPessoa.php?id=".$row['id']."'>Alterar</a></td>";
                     echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Pessoa'>Deletar</a></td>";
                     echo "</tr>";
                 }
@@ -92,7 +92,7 @@
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['nomecidade']."</td>";
                         echo "<td>".$row['estado']."</td>";
-                        echo "<td><a href='alteraCidade.php?id=".$row['id']."'>Alterar</a></td>";
+                        echo "<td><a href='teste/alteraCidade.php?id=".$row['id']."'>Alterar</a></td>";
                         echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Cidade'>Deletar</a></td>";
                         echo "</tr>";
                     }
@@ -137,7 +137,7 @@
                         echo "<td>".$row['dt_nascimento']."</td>";
                         echo "<td>".$row['idade']."</td>";
                         echo "<td>".($row['castrado'] == 1 ? 'Sim': 'Não')."</td>";
-                        echo "<td><a href='alteraAnimal.php?id=".$row['id']."'>Alterar</a></td>";
+                        echo "<td><a href='teste/alteraAnimal.php?id=".$row['id']."'>Alterar</a></td>";
                         echo "<td><a href='deleta.php?id=".$row['id']."&tabela=Animal'>Deletar</a></td>";
                         echo "</tr>";
                     }
